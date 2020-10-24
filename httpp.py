@@ -29,10 +29,10 @@ from linebot import LineBotApi
 from linebot.models import TextSendMessage
 from linebot.exceptions import LineBotApiError
 
-line_bot_api.push_message('U6b0f8d723a86579eda979e83510d36f1', TextSendMessage(text='Crash.....(at a extend???), here is the location:'))
 line_bot_api = LineBotApi('O8kuFrVBCMH6j4TcxbtKSqTWzzgBfejuvKgsn0yosH1CMb7g7NRZdJPorxOENF+y1GGKbx9+Km2Ffc4x/S/yPACFLtr9FveKo45X17kgDVfWmezJb8PNJ08JwZJc454oss6+fknmEssQskCs8tXTaQdB04t89/1O/w1cDnyilFU=')
 
 try:
+    line_bot_api.push_message('U6b0f8d723a86579eda979e83510d36f1', TextSendMessage(text='Crash.....(at a extend???), here is the location:'))
     line_bot_api.push_message('U6b0f8d723a86579eda979e83510d36f1', TextSendMessage(text=message))
 except LineBotApiError as e:
     pass

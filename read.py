@@ -22,8 +22,9 @@ def get_location():
     crl.close()
     get_body = b_obj.getvalue()
     message= get_body.decode('utf8')
-    print('Output of GET request:\n%s' % message)
-    return message
+    return message['loc']
+    # print('Output of GET request:\n%s' % message)
+    # return message
 
 def send_message(message):
     try:

@@ -21,3 +21,17 @@ get_body = b_obj.getvalue()
 
 # Decode the bytes stored in get_body to HTML and print the result 
 print('Output of GET request:\n%s' % get_body.decode('utf8')) 
+
+
+
+
+# line push message
+from linebot import LineBotApi
+from linebot.models import TextSendMessage
+from linebot.exceptions import LineBotApiError
+
+line_bot_api = LineBotApi('<channel access token>')
+
+try:
+    line_bot_api.push_message('<to>', TextSendMessage(text='Hello World!'))
+except LineBotApiError as e:

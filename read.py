@@ -33,8 +33,8 @@ def send_message(message):
         pass
    
 def call():
-    get_location()
-    send_message()
+    m= get_location()
+    send_message(m)
    
 def stop():
     time.sleep(5)

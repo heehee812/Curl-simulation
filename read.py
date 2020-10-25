@@ -26,11 +26,7 @@ def get_location():
     crl.close()
     get_body = b_obj.getvalue()
     message= get_body.decode('utf8')
-    #print(type(message))
-    #print(message.split(':')[6].split(',')[0:2])
     return message.split(':')[6].split(',')[0:2]
-    # print('Output of GET request:\n%s' % message)
-    # return message
 
 def send_message(message,t):
     try:
@@ -42,7 +38,7 @@ def send_message(message,t):
    
 def call(i):
     m= get_location()
-    send_message(','.join(m[:]),text[i-1])
+    send_message(','.join(m[:])[2:-1],text[i-1])
    
 def stop():
     time.sleep(5)

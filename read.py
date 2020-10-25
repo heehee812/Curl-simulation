@@ -34,8 +34,9 @@ def get_location():
 
 def send_message(message,t):
     try:
+        url= 'https://www.google.com/maps/search/?api=1&query='+ message
         line_bot_api.push_message(userId, TextSendMessage(text=t))
-        line_bot_api.push_message(userId, TextSendMessage(text=message))
+        line_bot_api.push_message(userId, TextSendMessage(text=url))
     except LineBotApiError as e:
         pass
    

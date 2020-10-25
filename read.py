@@ -7,6 +7,10 @@ from linebot.exceptions import LineBotApiError
 #get location and push api
 access_token= 'O8kuFrVBCMH6j4TcxbtKSqTWzzgBfejuvKgsn0yosH1CMb7g7NRZdJPorxOENF+y1GGKbx9+Km2Ffc4x/S/yPACFLtr9FveKo45X17kgDVfWmezJb8PNJ08JwZJc454oss6+fknmEssQskCs8tXTaQdB04t89/1O/w1cDnyilFU='
 userId= 'U6b0f8d723a86579eda979e83510d36f1'
+text=['mild impact..., here is the location:',
+      'impact! here is the location:',
+      'severe impact!!! here is the location:']
+
 line_bot_api = LineBotApi(access_token)
 b_obj = BytesIO()
 crl = pycurl.Curl()
@@ -22,23 +26,26 @@ def get_location():
     crl.close()
     get_body = b_obj.getvalue()
     message= get_body.decode('utf8')
-    return message['loc']
+    #print(type(message))
+    #print(message.split(':')[6].split(',')[0:2])
+    return message.split(':')[6].split(',')[0:2]
     # print('Output of GET request:\n%s' % message)
     # return message
 
-def send_message(message):
+def send_message(message,t):
     try:
-        line_bot_api.push_message(userId, TextSendMessage(text='Crash.....(at a extend???), here is the location:'))
+        line_bot_api.push_message(userId, TextSendMessage(text=t))
         line_bot_api.push_message(userId, TextSendMessage(text=message))
     except LineBotApiError as e:
         pass
    
-def call():
+def call(i):
     m= get_location()
-    send_message(m)
+    send_message(','.join(m[:]),text[i-1])
    
 def stop():
     time.sleep(5)
+print(boom)
 
 while True :
     fptr = open("teraterm.txt")
@@ -46,12 +53,22 @@ while True :
     newline = len(L)
     for i in L[nowline:newline]:
         print(i)
-        if i[0] == '0':
+        if i[0] == '1':
             boom = 1
-            break;      
+            break;    
+        elif i[0] == '2':
+            boom = 2
+            break;
+        elif i[0] == '3':
+            boom = 3
+            break;    
+        else:
+            pass
     nowline = newline
     fptr.close()
-    if boom == 1:
-       call()
+   
+    if boom != 0:
+       call(boom)
        break
+
     stop()

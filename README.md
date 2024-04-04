@@ -7,5 +7,4 @@ line message and the helmet.
 
 ## Click here for [Demo](https:/https://line.me/R/ti/p/@145ikudc?from=page&accountId=145ikudc&searchId=145ikudc&pluginSlug=media&pluginId=479942983927488&itemId=0/) !
 
-![A190FixbQO1RhG](https://hackmd.io/_uploads/HyLACZny0.jpg)
-
+![A190FixbQO1RhG](https://github.com/heehee812/Curl-simulation/assets/57358478/d2aea620-58ab-4c86-b0a2-e0721491b560)
